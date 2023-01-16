@@ -5,6 +5,8 @@ public class PlayerController : MonoBehaviour {
 	public float moveSpeed = 10f;
 	public float rotationSpeed = 10f;
 
+	public Joystick joystick;
+
 	private float rotation;
 	private Rigidbody rb;
 
@@ -15,7 +17,10 @@ public class PlayerController : MonoBehaviour {
 
 	void Update ()
 	{
-		rotation = Input.GetAxisRaw("Horizontal");
+		if (joystick != null)
+		{
+            rotation = joystick.Horizontal;
+        }
 	}
 
 	void FixedUpdate ()
